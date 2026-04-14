@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Categorias - Sistema Financeiro{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>📂 Categorias</h1>
+    <p>Crie categorias vinculadas aos usuários para organizar as transações</p>
+</div>
+
+<div class="grid grid-2">
+    <!-- Formulário -->
+    <div class="card">
+        <div class="card-title">➕ Nova Categoria</div>
+        <div id="category-message" class="message-area"></div>
+        <form id="category-form">
+            <div class="form-group">
+                <label for="category-nome">Nome da Categoria</label>
+                <input type="text" id="category-nome" placeholder="Ex: Alimentação, Transporte..." required>
+            </div>
+            <div class="form-group">
+                <label for="category-user-id">Usuário</label>
+                <select id="category-user-id" required>
+                    <option value="">Carregando...</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" id="btn-create-category">Criar Categoria</button>
+        </form>
+    </div>
+
+    <!-- Lista -->
+    <div class="card">
+        <div class="card-title">📋 Categorias Cadastradas</div>
+
+        <div class="filter-bar">
+            <div class="form-group">
+                <label for="filter-user-id">Filtrar por Usuário</label>
+                <select id="filter-user-id">
+                    <option value="">Carregando...</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Usuário</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="categories-tbody">
+                    <tr><td colspan="4"><div class="loading">Carregando...</div></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

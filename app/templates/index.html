@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Sistema Financeiro{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>📊 Dashboard</h1>
+    <p>Visão geral do seu sistema financeiro</p>
+</div>
+
+<div class="grid grid-4">
+    <a href="/users" class="dashboard-card" id="card-users">
+        <div class="icon">👥</div>
+        <h3>Usuários</h3>
+        <div class="count" id="count-users">--</div>
+        <p>cadastrados</p>
+    </a>
+
+    <a href="/categories" class="dashboard-card" id="card-categories">
+        <div class="icon">📂</div>
+        <h3>Categorias</h3>
+        <div class="count" id="count-categories">--</div>
+        <p>cadastradas</p>
+    </a>
+
+    <a href="/transactions" class="dashboard-card" id="card-transactions">
+        <div class="icon">💸</div>
+        <h3>Transações</h3>
+        <div class="count" id="count-transactions">--</div>
+        <p>registradas</p>
+    </a>
+
+    <div class="dashboard-card" id="card-saldo" style="cursor: default;">
+        <div class="icon">💰</div>
+        <h3>Saldo</h3>
+        <div class="count" id="saldo-total">--</div>
+        <p>saldo atual</p>
+    </div>
+</div>
+{% endblock %}

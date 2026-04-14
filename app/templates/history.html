@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Histórico - Sistema Financeiro{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>📋 Histórico de Auditoria</h1>
+    <p>Registro de todas as ações realizadas sobre as transações</p>
+</div>
+
+<div class="card">
+    <div class="card-title">🔍 Filtrar Histórico</div>
+
+    <div class="filter-bar">
+        <div class="form-group">
+            <label for="filter-tx-id">ID da Transação</label>
+            <input type="number" id="filter-tx-id" placeholder="Filtrar por ID da transação...">
+        </div>
+        <button class="btn btn-filter" id="filter-history-btn">Filtrar</button>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Transação</th>
+                    <th>Ação</th>
+                    <th>Data/Hora</th>
+                </tr>
+            </thead>
+            <tbody id="history-tbody">
+                <tr><td colspan="4"><div class="loading">Carregando...</div></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Transações - Sistema Financeiro{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>💸 Transações</h1>
+    <p>Registre entradas e saídas financeiras</p>
+</div>
+
+<div class="grid grid-2">
+    <!-- Formulário -->
+    <div class="card">
+        <div class="card-title">➕ Nova Transação</div>
+        <div id="tx-message" class="message-area"></div>
+        <form id="transaction-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="tx-valor">Valor (R$)</label>
+                    <input type="number" id="tx-valor" placeholder="0,00" step="0.01" min="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="tx-tipo">Tipo</label>
+                    <select id="tx-tipo" required>
+                        <option value="">Selecione</option>
+                        <option value="entrada">📈 Entrada</option>
+                        <option value="saida">📉 Saída</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tx-user-id">Usuário</label>
+                <select id="tx-user-id" required>
+                    <option value="">Carregando...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tx-category-id">Categoria</label>
+                <select id="tx-category-id" required>
+                    <option value="">Selecione um usuário primeiro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tx-data">Data (opcional)</label>
+                <input type="datetime-local" id="tx-data">
+            </div>
+            <button type="submit" class="btn btn-primary" id="btn-create-transaction">Criar Transação</button>
+        </form>
+    </div>
+
+    <!-- Lista -->
+    <div class="card">
+        <div class="card-title">📋 Transações Registradas</div>
+
+        <div class="filter-bar">
+            <div class="form-group">
+                <label for="filter-tx-user-id">Filtrar por Usuário</label>
+                <select id="filter-tx-user-id">
+                    <option value="">Carregando...</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="tx-summary" class="summary-bar"></div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Valor</th>
+                        <th>Tipo</th>
+                        <th>Categoria</th>
+                        <th>Usuário</th>
+                        <th>Data</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="transactions-tbody">
+                    <tr><td colspan="7"><div class="loading">Carregando...</div></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
